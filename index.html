@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- 
+    Centro de Estética - Página Principal
+    Descripción: Landing page para centro de belleza y estética
+    Autor: [Tu nombre]
+    Fecha: 2025
+    Versión: 2.0 (Optimizada)
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Centro de estética especializado en maquillaje, peluquería, novias y producciones. Servicios de belleza profesionales.">
+    <meta name="keywords" content="estética, maquillaje, peluquería, novias, belleza, tratamientos">
+    <title>Studio 2 - Centro de Estética y Belleza</title>
+    <link rel="stylesheet" href="styles/estetica.css">
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="imagenes/studio2-logo-1.png">
+    <link rel="preload" as="image" href="imagenes/PEINADO-3.jpg">
+</head>
+<body>
+    <!-- Header con navegación principal -->
+    <header role="banner">
+        <img src="imagenes/studio2-logo-1.png" alt="Studio 2 - Logo del centro de estética" class="logo">
+        <nav id="menu" role="navigation" aria-label="Navegación principal">
+            <a href="#inicio" id="azul" aria-current="page">Inicio</a>
+            <a href="#bodas">Bodas</a>
+            <a href="#producciones">Producciones</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#galeria">Galería</a>
+            <a href="#conocenos">Conócenos</a>
+            <a href="html/contacto.html">Contacto</a>
+        </nav>
+    </header>
+    <!-- Sección hero principal -->
+    <main role="main" id="inicio">
+        <section class="hero">
+            <div id="dcha" class="hero-content">
+                <h1>Espacio de belleza</h1>
+                <p>La creatividad no tiene límites, lo que más me gusta de mi trabajo es que es una forma de arte y expresión como otra cualquiera.</p>
+                <a href="#galeria" id="rojo" class="cta-button" role="button">Ver portfolio</a>
+            </div>
+            <div id="izqda" class="hero-image">
+                <img src="imagenes/PEINADO-3.jpg" alt="Maquillaje profesional para novias - Estilo natural y elegante" loading="lazy">
+            </div>
+        </section>
+    </main>
+    <!-- Sección de servicios -->
+    <section id="servicios" aria-labelledby="servicios-title">
+        <div class="titulo">
+            <h2 id="servicios-title">Nuestros Servicios</h2>
+        </div>
+        <div class="servicios-grid">
+            <article class="servicio-card">
+                <img src="imagenes/uno.png" alt="Logo Centro de Estética - Tratamientos de belleza profesionales" class="servicio-icon">
+                <h3>Para el día a día</h3>
+                <ul class="servicios-lista">
+                    <li>Maquillaje</li>
+                    <li>Peluquería</li>
+                    <li>Faciales</li>
+                    <li>Tratamientos capilares</li>
+                </ul>
+            </article>
+            <article class="servicio-card">
+                <img src="imagenes/dos.png" alt="Icono novias y eventos" class="servicio-icon">
+                <h3>Novias y eventos</h3>
+                <ul class="servicios-lista">
+                    <li>Novias</li>
+                    <li>Madrinas</li>
+                    <li>Invitadas niñ@s</li>
+                    <li>Beauty Corner</li>
+                </ul>
+            </article>
+            <article class="servicio-card servicio-destacado" id="producciones">
+                <img src="imagenes/tres.png" alt="Icono producciones" class="servicio-icon" id="tres">
+                <div id="cajaviolet" class="contenido-destacado">
+                    <h3>Producciones</h3>
+                    <p>Si lo que necesitas es prepararte tu portfolio como modelo, actriz o simplemente preparar una fiesta por gusto propio, cuenta con nosotros. Pondremos todo de nuestra parte para que el resultado sea perfecto.</p>
+                </div>
+                <h2 class="llamada-accion">Contacta con nosotros, estamos a tu disposición</h2>
+            </article>
+            <article class="servicio-card">
+                <img src="imagenes/cuatro.png" alt="Icono asesoría online" class="servicio-icon">
+                <div id="cajaverde" class="contenido-especial">
+                    <h3>Asesoría online</h3>
+                    <p>Hoy todo es posible y puedes tener a tu alcance el asesoramiento estético que buscas. Ponte en contacto con nosotras y te contamos cómo hacerlo.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- Galería de trabajos -->
+    <section id="galeria" aria-labelledby="galeria-title">
+        <div class="titulo">
+            <h2 id="galeria-title">Nuestro Trabajo</h2>
+        </div>
+        <div id="peinados" class="galeria-grid">
+            <div class="cajapei galeria-columna">
+                <img src="imagenes/PEINADO-30.jpg" alt="Semirecogido elegante con orquilla decorativa" loading="lazy">
+                <img src="imagenes/PEINADO-14.jpg" alt="Moño clásico con horquilla" loading="lazy">
+                <img src="imagenes/PEINADO-13.jpg" alt="Coleta alta con trenzas laterales" loading="lazy">
+            </div>
+            <div class="cajapei galeria-columna">
+                <img src="imagenes/PEINADO-39.jpg" alt="Semirecogido con trenza desaliñada" loading="lazy">
+                <img src="imagenes/PEINADO-12.jpg" alt="Peluquera profesional realizando peinado de novia" loading="lazy">
+                <img src="imagenes/PEINADO-21.jpg" alt="Coleta baja con pelo largo y cinta decorativa" loading="lazy">
+            </div>
+            <div class="cajapei galeria-columna">
+                <img src="imagenes/PEINADO-52.jpg" alt="Trenza lateral con broche elegante" loading="lazy">
+                <img src="imagenes/PEINADO-11.jpg" alt="Fotografía artística en blanco y negro de peluquería" loading="lazy">
+                <img src="imagenes/PEINADO-35.jpg" alt="Novia con vestido y moño bajo con tiara" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <p>&copy; 2025 Studio 2 - Centro de Estética. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
