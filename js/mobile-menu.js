@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
     const menu = document.getElementById('menu');
     const menuOverlay = document.getElementById('menuOverlay');
-    const menuLinks = menu.querySelectorAll('a');
+    
+    // Verificar que los elementos existen
+    if (!menuToggle || !menu || !menuOverlay) {
+        return;
+    }
     
     // Estado del menú
     let isMenuOpen = false;
@@ -20,8 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
         isMenuOpen = true;
         menuToggle.classList.add('active');
         menu.classList.add('active');
-        menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevenir scroll del body
         
         // Accesibilidad
         menuToggle.setAttribute('aria-expanded', 'true');
@@ -35,8 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         isMenuOpen = false;
         menuToggle.classList.remove('active');
         menu.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = ''; // Restaurar scroll del body
         
         // Accesibilidad
         menuToggle.setAttribute('aria-expanded', 'false');
@@ -63,17 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleMenu();
     });
     
-    // Click en el overlay para cerrar el menú
-    menuOverlay.addEventListener('click', function() {
-        closeMenu();
-    });
-    
-    // Click en los enlaces del menú para cerrarlo
-    menuLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            closeMenu();
-        });
-    });
+    // Overlay removido - funcionalidad deshabilitada
     
     // Tecla Escape para cerrar el menú
     document.addEventListener('keydown', function(e) {
@@ -89,12 +79,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Navegación suave para enlaces internos
+    // Obtener enlaces del menú
+    const menuLinks = document.querySelectorAll('#menu a');
+    
+    // Navegación suave para enlaces internos (sin cerrar menú)
     menuLinks.forEach(function(link) {
         const href = link.getAttribute('href');
         
         // Solo aplicar scroll suave a enlaces internos (que empiecen con #)
-        if (href && href.startsWith('#')) {
+        if (href && href.startsWith('#') && href !== '#') {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
@@ -108,8 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         block: 'start'
                     });
                     
-                    // Cerrar menú después del scroll
-                    setTimeout(closeMenu, 300);
+                    // NO cerrar menú automáticamente
                 }
             });
         }

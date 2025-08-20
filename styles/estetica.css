@@ -117,6 +117,50 @@ header {
     color: var(--color-secundario);
     font-weight: var(--peso-bold);
 }
+
+/* ===== MENÚ HAMBURGUESA MÓVIL ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+    z-index: 1001;
+    transition: var(--transicion-media);
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 3px;
+    background-color: var(--color-texto);
+    margin: 2px 0;
+    transition: var(--transicion-media);
+    border-radius: 2px;
+}
+
+/* Animación del botón hamburguesa cuando está activo */
+.menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Overlay del menú móvil - Deshabilitado */
+.menu-overlay {
+    display: none;
+}
 /* ===== SECCIÓN HERO ===== */
 .hero {
     display: flex;
@@ -348,6 +392,51 @@ footer {
 
 /* ===== MEDIA QUERIES ===== */
 @media (max-width: 768px) {
+    /* Mostrar botón hamburguesa y ocultar menú en móvil */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    #menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: auto;
+        max-height: 100vh;
+        background-color: var(--color-blanco);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 80px 30px 30px;
+        gap: var(--espaciado-sm);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right var(--transicion-media);
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    
+    #menu.active {
+        right: 0;
+    }
+    
+    #menu a {
+        width: 100%;
+        padding: var(--espaciado-sm) 0;
+        font-size: var(--texto-base);
+        border-bottom: 1px solid rgba(139, 0, 139, 0.1);
+        text-align: left;
+        display: block;
+        min-height: 40px;
+        line-height: 1.4;
+        pointer-events: auto;
+        cursor: pointer;
+    }
+    
+    #menu a:last-child {
+        border-bottom: none;
+    }
+    
     .hero {
         flex-direction: column;
         text-align: center;
@@ -356,11 +445,6 @@ footer {
     
     .hero-content h1 {
         font-size: var(--texto-3xl);
-    }
-    
-    #menu {
-        flex-direction: column;
-        gap: var(--espaciado-sm);
     }
     
     .servicios-grid {
